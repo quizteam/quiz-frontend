@@ -20,8 +20,6 @@ class App extends Component {
     this.answerquestion = this.answerQuestion.bind(this);
   }
 
- 
-
   createQuestion(num) {
     this.setState({
         question: quizData[num].question,
@@ -37,9 +35,10 @@ componentWillMount() {
 }
 
 answerQuestion() {
+  
   alert("You clicked the button");
-
-}
+  
+ };
 
   render() {
     let {num, total, question, answers, correct, score} = this.state;

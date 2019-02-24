@@ -16,13 +16,15 @@ class Quiz extends React.Component {
     render() {
 
         return (
-        <div className = "container">
+        <div id = "choices" 
+            className = "container">
 
             <div className = "row">
             <p style = {styles.question} >{this.props.question}</p>
             </div>
             <div className = "row">
             <button 
+            id = "0"
             type = "button" 
             style = {styles.button} 
             onClick={this.onAnswerClicked} >
@@ -31,6 +33,7 @@ class Quiz extends React.Component {
             
             <div className = "row">
             <button 
+            id = "1"
             type = "button" 
             style = {styles.button} 
             onClick={this.onAnswerClicked}>
@@ -39,6 +42,7 @@ class Quiz extends React.Component {
 
             <div className = "row">
             <button 
+            id = "2"
             type = "button" 
             style = {styles.button} 
             onClick={this.onAnswerClicked} >
@@ -47,6 +51,7 @@ class Quiz extends React.Component {
 
             <div className = "row">
             <button 
+            id = "3"
             type = "button" 
             style = {styles.button} 
             onClick={this.onAnswerClicked} >

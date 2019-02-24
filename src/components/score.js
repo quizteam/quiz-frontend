@@ -6,7 +6,7 @@ class Score extends React.Component {
         return (
         <div className = "row">
 
-           <p>Your Score: 0</p>
+           <p>Your Score: {this.props.score}</p>
 
         </div>
         )
