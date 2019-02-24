@@ -20,7 +20,6 @@ class App extends Component {
 
   }
 
-
   createQuestion(num) {
     this.setState({
         question: quizData[num].question,
