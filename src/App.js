@@ -38,6 +38,7 @@ componentWillMount() {
 
 answerQuestion() {
   alert("You clicked the button");
+
 }
 
   render() {

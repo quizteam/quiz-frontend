@@ -11,8 +11,6 @@ class Quiz extends React.Component {
 
     onAnswerClicked() {
         this.props.onAnswerClickedHandler()
-
-        //this.props.completeTaskHandler(this.props.task.TaskId);
     };
 
     render() {
