@@ -33,12 +33,12 @@ class Quiz extends React.Component {
 }
 
 const styles = {
-    button: {
+       button: {
        margin: "10px",
        width: "400px",
        height: "50px",
        border: "2px",
-       fontSize: 20
+       fontSize: 20,
     },
 
     question: {
