@@ -16,9 +16,11 @@ class App extends Component {
       num: 0,
       total: quizData.length,
       score: 0
-    }
-
+    };
+    this.answerquestion = this.answerQuestion.bind(this);
   }
+
+ 
 
   createQuestion(num) {
     this.setState({
@@ -34,13 +36,17 @@ componentWillMount() {
   this.createQuestion(num);
 }
 
+answerQuestion() {
+  alert("You clicked the button");
+}
+
   render() {
     let {num, total, question, answers, correct, score} = this.state;
 
     return (
       <div className="container">
         <Header />
-        <Quiz question = {question} answers = {answers} correct = {correct}/>
+        <Quiz question = {question} answers = {answers} correct = {correct} onAnswerClickedHandler = {this.answerQuestion}/>
         <QuestionCounter num = {num} total = {total}/>
         <Score score = {score} />
       </div>

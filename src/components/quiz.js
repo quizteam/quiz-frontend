@@ -10,7 +10,7 @@ class Quiz extends React.Component {
     }
 
     onAnswerClicked() {
-        alert("You clicked the button");
+        this.props.onAnswerClickedHandler()
 
         //this.props.completeTaskHandler(this.props.task.TaskId);
     };
