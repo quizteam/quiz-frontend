@@ -10,8 +10,14 @@ class Quiz extends React.Component {
     }
 
     onAnswerClicked(answer) {
-        this.props.onAnswerClickedHandler()
+        this.props.onAnswerClickedHandler(answer.target.id)
+        console.log(this.props.correct);
+        console.log(answer);
         console.log(answer.target.id);
+
+        let answerGiven = answer.target.id;
+        let correctAnswer = this.props.correct;
+        alert("You said " + answerGiven + "and the correct answer is " + correctAnswer);
     };
 
     render() {

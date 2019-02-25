@@ -34,10 +34,16 @@ componentWillMount() {
   this.createQuestion(num);
 }
 
-answerQuestion() {
+answerQuestion(answer) {
   
-  alert("You clicked the button");
+  alert("You answered" + answer);
   
+  /*if (answer === this.state.correct) {
+    alert("You're right!");
+  } else {
+    alert("That's not right.");
+  }*/
+ 
  };
 
   render() {
