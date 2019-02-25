@@ -10,19 +10,26 @@ class Quiz extends React.Component {
     }
 
     onAnswerClicked(answer) {
-        //this.props.onAnswerClickedHandler(answer.target.id)
-        //console.log(this.props.correct);
-        //console.log(answer);
-        //console.log(answer.target.id);
-
+        //these two lines compare the id of the clicked answer
+        //to the correct answer, to see if the number is the same
         let answerGiven = answer.target.id;
         let correctAnswer = this.props.correct;
         // eslint-disable-next-line
+
+        //if it's the same, this code runs
         if (answerGiven == correctAnswer) {
             alert("You're right!"); 
          this.props.handleScoreIncrease();
+        
+        //I want this code to load the next question, 
+        //but not sure how to do it yet
+         //this.props.startNextQuestion();
+
+
+        //if the answer is incorrect, this code runs
         } else {
             alert ("That's not the right answer");
+             //this.props.startNextQuestion();
         }
     };
 
