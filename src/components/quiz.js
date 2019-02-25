@@ -3,6 +3,16 @@ import React from 'react';
 class Quiz extends React.Component {
 
    
+ constructor(props) {
+        super(props);
+
+        this.onAnswerClicked = this.onAnswerClicked.bind(this);
+    }
+
+    onAnswerClicked() {
+        this.props.onAnswerClickedHandler()
+    };
+
     render() {
 
         return (
@@ -12,19 +22,35 @@ class Quiz extends React.Component {
             <p style = {styles.question} >{this.props.question}</p>
             </div>
             <div className = "row">
-            <button type = "button" style = {styles.button}>{this.props.answers[0]}</button>
+            <button 
+            type = "button" 
+            style = {styles.button} 
+            onClick={this.onAnswerClicked} >
+            {this.props.answers[0]}</button>
             </div>
             
             <div className = "row">
-            <button type = "button" style = {styles.button}>{this.props.answers[1]}</button>
+            <button 
+            type = "button" 
+            style = {styles.button} 
+            onClick={this.onAnswerClicked}>
+            {this.props.answers[1]}</button>
             </div>
 
             <div className = "row">
-            <button type = "button" style = {styles.button} >{this.props.answers[2]}</button>
+            <button 
+            type = "button" 
+            style = {styles.button} 
+            onClick={this.onAnswerClicked} >
+            {this.props.answers[2]}</button>
             </div>
 
             <div className = "row">
-            <button type = "button" style = {styles.button} >{this.props.answers[3]}</button>
+            <button 
+            type = "button" 
+            style = {styles.button} 
+            onClick={this.onAnswerClicked} >
+            {this.props.answers[3]}</button>
             </div>
 
         </div>
@@ -33,12 +59,11 @@ class Quiz extends React.Component {
 }
 
 const styles = {
-    button: {
+       button: {
        margin: "10px",
        width: "400px",
        height: "50px",
-       border: "2px",
-       fontSize: 20
+       fontSize: 20,
     },
 
     question: {
