@@ -4,6 +4,7 @@ import QuestionCounter from './components/questionCounter';
 import Score from './components/score';
 import Quiz from './components/quiz';
 import quizData from './components/quizData';
+import FinalScore from './components/finalScore';
 
 
 console.log(quizData);
@@ -44,6 +45,7 @@ componentWillMount() {
         <Quiz question = {question} answers = {answers} correct = {correct}/>
         <QuestionCounter num = {num} total = {total}/>
         <Score score = {score} />
+        <FinalScore />
       </div>
     );
   };
