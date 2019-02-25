@@ -9,8 +9,9 @@ class Quiz extends React.Component {
         this.onAnswerClicked = this.onAnswerClicked.bind(this);
     }
 
-    onAnswerClicked() {
+    onAnswerClicked(answer) {
         this.props.onAnswerClickedHandler()
+        console.log(answer.target.id);
     };
 
     render() {
@@ -18,7 +19,6 @@ class Quiz extends React.Component {
         return (
         <div id = "choices" 
             className = "container">
-
             <div className = "row">
             <p style = {styles.question} >{this.props.question}</p>
             </div>
