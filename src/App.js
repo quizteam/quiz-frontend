@@ -17,10 +17,9 @@ class App extends Component {
       num: 0,
       total: quizData.length,
       score: 0
-    }
-
+    };
+    this.scoreIncrease = this.scoreIncrease.bind(this);
   }
-
 
   createQuestion(num) {
     this.setState({
@@ -31,10 +30,17 @@ class App extends Component {
     });
 }
 
+scoreIncrease() {
+  this.setState({
+    score: this.state.score +1
+  });
+}
+
 componentWillMount() {
   let { num } = this.state;
   this.createQuestion(num);
 }
+
 
   render() {
     let {num, total, question, answers, correct, score} = this.state;
@@ -42,7 +48,7 @@ componentWillMount() {
     return (
       <div className="container">
         <Header />
-        <Quiz question = {question} answers = {answers} correct = {correct}/>
+        <Quiz startNextQuestion = {this.createQuestion} question = {question} answers = {answers} correct = {correct} onAnswerClickedHandler = {this.answerQuestion} handleScoreIncrease = {this.scoreIncrease} />
         <QuestionCounter num = {num} total = {total}/>
         <Score score = {score} />
         <FinalScore />
