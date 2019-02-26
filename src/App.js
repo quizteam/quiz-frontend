@@ -30,6 +30,21 @@ class App extends Component {
     });
 }
 
+showFinalScore() {
+  let {score} = this.state;
+  alert("Your score is " + score);
+}
+
+  nextQuestion() {
+    let {num, total, score} = this.state;
+    if (total === num){
+      console.log(score);
+      //showFinalScore();
+    }
+    else //show next question
+    this.quiz.createQuestion(num);
+  }
+
 scoreIncrease() {
   this.setState({
     score: this.state.score +1
@@ -48,7 +63,13 @@ componentWillMount() {
     return (
       <div className="container">
         <Header />
-        <Quiz startNextQuestion = {this.createQuestion} question = {question} answers = {answers} correct = {correct} onAnswerClickedHandler = {this.answerQuestion} handleScoreIncrease = {this.scoreIncrease} />
+        <Quiz startNextQuestion = {this.createQuestion} 
+        question = {question} 
+        answers = {answers} 
+        correct = {correct} 
+        onAnswerClickedHandler = {this.answerQuestion} 
+        handleScoreIncrease = {this.scoreIncrease} 
+        handleNextQuestion = {this.nextQuestion}/>
         <QuestionCounter num = {num} total = {total}/>
         <Score score = {score} />
         <FinalScore />

@@ -20,7 +20,11 @@ class Quiz extends React.Component {
         if (answerGiven == correctAnswer) {
             alert("You're right!"); 
          this.props.handleScoreIncrease();
+         this.props.handleNextQuestion();
         
+        //something like changing className so that the colour changes
+
+
         //I want this code to load the next question, 
         //but not sure how to do it yet
          //this.props.startNextQuestion();
@@ -30,6 +34,9 @@ class Quiz extends React.Component {
         } else {
             alert ("That's not the right answer");
              //this.props.startNextQuestion();
+             this.props.handleNextQuestion();
+
+             //changin the className so that the colour changes
         }
     };
 
@@ -96,3 +103,5 @@ const styles = {
 
 };
 export default Quiz;
+
+//button style for correct
