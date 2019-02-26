@@ -33,6 +33,21 @@ class App extends Component {
     });
 }
 
+showFinalScore() {
+  let {score} = this.state;
+  alert("Your score is " + score);
+}
+
+  nextQuestion() {
+    let {num, total, score} = this.state;
+    if (total === num){
+      console.log(score);
+      //showFinalScore();
+    }
+    else //show next question
+    this.quiz.createQuestion(num);
+  }
+
 scoreIncrease() {
   this.setState({
     score: this.state.score +1
