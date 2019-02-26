@@ -14,22 +14,21 @@ class Quiz extends React.Component {
         //to the correct answer, to see if the number is the same
         let answerGiven = answer.target.id;
         let correctAnswer = this.props.correct;
+        //let num = this.props.num + 1;
         // eslint-disable-next-line
 
         //if it's the same, this code runs
         if (answerGiven == correctAnswer) {
             alert("You're right!"); 
-         this.props.handleScoreIncrease();
-        
-        //I want this code to load the next question, 
-        //but not sure how to do it yet
-         //this.props.startNextQuestion();
-
+            this.props.handleScoreIncrease();
+            console.log(this.props);
+            this.props.handleNextQuestion();
 
         //if the answer is incorrect, this code runs
         } else {
             alert ("That's not the right answer");
-             //this.props.startNextQuestion();
+            this.props.handleNextQuestion();
+             
         }
     };
 
