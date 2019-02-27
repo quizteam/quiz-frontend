@@ -5,6 +5,8 @@ import Score from './components/score';
 import Quiz from './components/quiz';
 import quizData from './components/quizData';
 import FinalScore from './components/finalScore';
+import AlertDismissable from './components/alert';
+
 
 
 console.log(quizData);
@@ -38,16 +40,6 @@ showFinalScore() {
   alert("Your score is " + score);
 }
 
-  nextQuestion() {
-    let {num, total, score} = this.state;
-    if (total === num){
-      console.log(score);
-      //showFinalScore();
-    }
-    else //show next question
-    this.quiz.createQuestion(num);
-  }
-
 scoreIncrease() {
   this.setState({
     score: this.state.score +1
@@ -76,6 +68,7 @@ nextQuestion() {
 
     return (
       <div className="container">
+        <AlertDismissable />
         <Header />
         <Quiz 
         question = {question} 
