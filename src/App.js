@@ -16,12 +16,15 @@ class App extends Component {
     this.state = {
       num: 0,
       total: quizData.length,
-      score: 0
+      score: 0,
+      color: "blue",
     };
     this.scoreIncrease = this.scoreIncrease.bind(this);
     this.createQuestion = this.createQuestion.bind(this);
     this.componentWillMount = this.componentWillMount.bind(this);
     this.nextQuestion = this.nextQuestion.bind(this);
+    this.rightAnswer = this.rightAnswer.bind(this);
+    this.resetColor = this.resetColor.bind(this);
   }
 
   createQuestion(num) {
@@ -38,16 +41,6 @@ showFinalScore() {
   alert("Your score is " + score);
 }
 
-  nextQuestion() {
-    let {num, total, score} = this.state;
-    if (total === num){
-      console.log(score);
-      //showFinalScore();
-    }
-    else //show next question
-    this.quiz.createQuestion(num);
-  }
-
 scoreIncrease() {
   this.setState({
     score: this.state.score +1
@@ -62,22 +55,37 @@ componentWillMount() {
 nextQuestion() {
   let { num, total} = this.state;
 
+  this.resetColor()
+
   if (num === total) {
     alert("The quiz is finished");
   } else {
-    alert("Let's see the next question")
     this.createQuestion(num);
   };
 };
 
+rightAnswer() {
+  let rightAnswer = this.state.color;
+  rightAnswer = this.setState ({ color: 'green'});
+  
+  
+};
+
+resetColor() {
+ let resetColor = this.state.color;
+ resetColor = this.setState ({ color: "blue"});
+
+}
 
   render() {
-    let {num, total, question, answers, correct, score} = this.state;
+    let {num, total, question, answers, correct, score, color} = this.state;
 
     return (
       <div className="container">
         <Header />
         <Quiz 
+        color = {color}
+        handleRightAnswer = {this.rightAnswer}
         question = {question} 
         answers = {answers} 
         correct = {correct} 
