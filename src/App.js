@@ -5,6 +5,8 @@ import Score from './components/score';
 import Quiz from './components/quiz';
 import quizData from './components/quizData';
 import FinalScore from './components/finalScore';
+import AlertDismissable from './components/alert';
+
 
 
 console.log(quizData);
@@ -77,6 +79,7 @@ resetColor() {
 
     return (
       <div className="container">
+        <AlertDismissable />
         <Header />
         <Quiz 
         color = {color}
