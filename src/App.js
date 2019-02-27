@@ -65,16 +65,11 @@ nextQuestion() {
 };
 
 rightAnswer() {
-  let rightAnswer = this.state.color;
-  rightAnswer = this.setState ({ color: 'green'});
-  
-  
+  this.setState ({ color: 'green'});
 };
 
 resetColor() {
- let resetColor = this.state.color;
- resetColor = this.setState ({ color: "blue"});
-
+  this.setState ({ color: "blue"});
 }
 
   render() {

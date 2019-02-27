@@ -1,5 +1,4 @@
 import React from 'react'
-import quizData from './quizData';
 
 class QuestionCounter extends React.Component {
 

@@ -32,13 +32,21 @@ class Quiz extends React.Component {
         //to the correct answer, to see if the number is the same
         let answerGiven = answer.target.id;
         let correctAnswer = this.props.correct;
+
+        console.log(this.props.color);
         
         //if it's the same, this code runs
         if (answerGiven == correctAnswer) {
             alert("You're right!"); 
             this.props.handleScoreIncrease();
-            this.props.handleNextQuestion();
+            
             this.props.handleRightAnswer();
+
+            console.log(this.props.handleRightAnswer);
+            console.log(this.props.color);
+
+            this.props.handleNextQuestion();
+          
             //this.ButtonProgress.rightAnswer();
            
            // this.rightAnswer();
@@ -48,6 +56,7 @@ class Quiz extends React.Component {
             alert ("That's not the right answer");
 
             this.props.handleNextQuestion();
+            
         
         }
     };
@@ -107,23 +116,10 @@ const styles = {
        width: "400px",
        height: "50px",
        fontSize: 20,
-       backgroundColor: this.props.color
     },
 
     question: {
         fontSize: 30
-    },
-
-
-    rightAnswer: {
-        borderColor: "#1ea55b",
-        color: "#1ea55b"
-    },
-
-
-    wrongAnswer: {
-        borderColor: "#dc0a0a",
-        color: "#dc0a0a"
     }
 
 };
