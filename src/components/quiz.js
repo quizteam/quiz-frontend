@@ -6,7 +6,10 @@ class Quiz extends React.Component {
  constructor(props) {
         super(props);
 
-        
+        this.buttonRef = React.createRef()
+        this.state = {
+            color: "blue"
+        };
 
         this.onAnswerClicked = this.onAnswerClicked.bind(this);
         //this.rightAnswer = this.rightAnswer.bind(this);
@@ -33,17 +36,14 @@ class Quiz extends React.Component {
         let answerGiven = answer.target.id;
         let correctAnswer = this.props.correct;
 
-        console.log(this.props.color);
         
         //if it's the same, this code runs
         if (answerGiven == correctAnswer) {
             alert("You're right!"); 
             this.props.handleScoreIncrease();
             
-            this.props.handleRightAnswer();
-
-            console.log(this.props.handleRightAnswer);
-            console.log(this.props.color);
+            alert(this.state.color);
+        
 
             this.props.handleNextQuestion();
           
@@ -63,6 +63,14 @@ class Quiz extends React.Component {
 
     render() {
 
+        let  style= {
+            backgroundColor: this.state.color,
+            margin: "10px",
+            width: "400px",
+            height: "50px",
+            fontSize: 20
+        }
+
         return (
         <div id = "choices" 
             className = "container">
@@ -73,7 +81,8 @@ class Quiz extends React.Component {
             <button 
             id = "0"
             type = "button" 
-            style={styles.button}
+            ref = {this.buttonRef}
+            style={style}
             onClick={this.onAnswerClicked} >
             {this.props.answers[0]}</button>
             </div>
@@ -82,7 +91,7 @@ class Quiz extends React.Component {
             <button 
             id = "1"
             type = "button" 
-            style = {styles.button} 
+            style={style}
             onClick={this.onAnswerClicked}>
             {this.props.answers[1]}</button>
             </div>
@@ -91,7 +100,7 @@ class Quiz extends React.Component {
             <button 
             id = "2"
             type = "button" 
-            style = {styles.button} 
+            style={style}
             onClick={this.onAnswerClicked} >
             {this.props.answers[2]}</button>
             </div>
@@ -100,7 +109,7 @@ class Quiz extends React.Component {
             <button 
             id = "3"
             type = "button" 
-            style = {styles.button} 
+            style={style}
             onClick={this.onAnswerClicked} >
             {this.props.answers[3]}</button>
             </div>
@@ -111,13 +120,7 @@ class Quiz extends React.Component {
 }
 
 const styles = {
-       button: {
-       margin: "10px",
-       width: "400px",
-       height: "50px",
-       fontSize: 20,
-    },
-
+     
     question: {
         fontSize: 30
     }
