@@ -5,7 +5,7 @@ class finalScore extends React.Component {
     render() {
         return (
             <div className="row">
-                Oh dear! Your final score is: 0
+                <p>Your Final Score Is: {this.props.score}</p>
                 </div>
         )
     }

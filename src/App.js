@@ -19,11 +19,13 @@ class App extends Component {
       num: 0,
       total: quizData.length,
       score: 0,
+      visible: false
     };
     this.scoreIncrease = this.scoreIncrease.bind(this);
     this.createQuestion = this.createQuestion.bind(this);
     this.componentWillMount = this.componentWillMount.bind(this);
     this.nextQuestion = this.nextQuestion.bind(this);
+    this.incorrectAnswer = this.incorrectAnswer.bind(this);
 
   }
 
@@ -62,12 +64,19 @@ nextQuestion() {
   };
 };
 
+incorrectAnswer() {
+  this.setState({
+    visible: true
+  })
+}
   render() {
-    let {num, total, question, answers, correct, score} = this.state;
+    let {num, total, question, answers, correct, score, visible} = this.state;
+
+  
 
     return (
       <div className="container">
-        <AlertDismissable />
+        <AlertDismissable visible = {visible} />
         <Header />
         <Quiz 
         handleRightAnswer = {this.rightAnswer}
@@ -77,10 +86,13 @@ nextQuestion() {
         onAnswerClickedHandler = {this.answerQuestion} 
         handleScoreIncrease = {this.scoreIncrease} 
         handleNextQuestion = {this.nextQuestion}
-        num = {num} />
+        num = {num} 
+        handleIncorrectAnswer = {this.incorrectAnswer}
+      />
+        
         <QuestionCounter num = {num} total = {total}/>
         <Score score = {score} />
-        <FinalScore />
+        <FinalScore score = {score}/>
       </div>
     );
   };

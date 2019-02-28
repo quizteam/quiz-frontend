@@ -24,7 +24,7 @@ class Quiz extends React.Component {
 
         } else {
             alert ("That's not the right answer. We can add some more info here, we could bring in something from the json file to give the right answer");
-
+            this.props.handleIncorrectAnswer();
             this.props.handleNextQuestion();
         };
     };

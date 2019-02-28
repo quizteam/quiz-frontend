@@ -21,7 +21,7 @@ export default [
     },
     {
         question: 'What is state in React?',
-        answers: ['A persistant storage', 'An internal data store (object) of a component'],
+        answers: ['A persistant storage', 'An internal data store (object) of a component', ],
         correct: 1
     },
     {
@@ -31,7 +31,7 @@ export default [
     },
     {
         question: 'What does TDD stand for',
-        answers: ['Try,Drive,Development',' Test Driven Development'],
+        answers: ['Try Drive Development',' Test Driven Development', 'Totally Disastrous Development', 'Technically Demanding Development'],
         correct: 1
     }
 ]

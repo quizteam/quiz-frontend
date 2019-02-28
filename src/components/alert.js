@@ -6,14 +6,14 @@ class AlertDismissable extends React.Component {
     constructor(props) {
       super(props);
   
-      this.state = { show: true };
+      
     }
   
     render() {
       const handleHide = () => this.setState({ show: false });
       return (
         <>
-          <Alert show={this.state.show} variant="success">
+          <Alert show={this.props.visible} variant="success">
             <Alert.Heading>Welcome to the Tech Returners Quiz!</Alert.Heading>
             <p>
              This is an alert box that we could use either at the start or at the end with the final score displayed.
