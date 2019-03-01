@@ -1,37 +1,49 @@
 
 import React from 'react';
-import Alert from 'react-bootstrap/Alert';
+import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 
 class CorrectAlert extends React.Component {
 
-    render() {
-        //const handleHideCorrectAlert = () => this.setState({ show: false });
+        render() {
+            return (
+              <Modal
+                show = {this.props.visible}
+                size="lg"
+                aria-labelledby="contained-modal-title-vcenter"
+                centered
+              >
+                <Modal.Header style = {styles.modal}>
+                  <Modal.Title id="contained-modal-title-vcenter">
+                   Well done!
+                  </Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                  <h4>That's the right answer</h4>
+                  <p>
+                    More info here
+                  </p>
+                </Modal.Body>
+                <Modal.Footer>
+                  <Button onClick={this.props.handleNextQuestion}>Next Question</Button>
+                </Modal.Footer>
+              </Modal>
+            );
+          }
+        }
 
-        return (
 
-            <Alert show = {this.props.visible} variant="success">
-                <Alert.Heading>Well done!</Alert.Heading>
-                <p>
-                   That's the right answer.
-                </p>
-                <hr />
-                <p className="mb-0">
-                    More info here.
-                </p>
-
-                <div className="d-flex justify-content-end">
-              <Button onClick={this.props.handleNextQuestion} variant="outline-success">
-               Click to continue
-              </Button>
-            </div>
-            </Alert>
-    
-        );
-    };    
-}
-    
+        const styles = {
+          modal: {
+            backgroundColor: "#32CD32",
+            color: "white",
+          }
+        }
+  
   export default CorrectAlert;
+
+
+ 
 
 
 
