@@ -1,15 +1,37 @@
 import React from 'react';
+import Button from 'react-bootstrap/Button';
+import Alert from 'react-bootstrap/Alert';
 
-class finalScore extends React.Component {
-
-    render() {
+class FinalScoreAlert extends React.Component {
+    
+      render() {
+        
         return (
-            <div className="row">
-                <p>Your Final Score Is: {this.props.score}</p>
-                </div>
-        )
+          <>
+            <Alert show={this.props.visible} variant="success">
+              <Alert.Heading>Your final score is:</Alert.Heading>
+              <p>
+              {this.props.score}
+              </p>
+              <hr />
+              <div className="d-flex justify-content-end">
+                <Button onClick={this.props.restartQuiz} variant="outline-success">
+                 Reset Quiz
+                </Button>
+              </div>
+            </Alert>
+          </>
+        );
+      }
     }
-};
+  
+  
+    
+  export default FinalScoreAlert;
 
 
-export default finalScore; 
+
+
+
+   
+  

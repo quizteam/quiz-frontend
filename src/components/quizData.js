@@ -33,5 +33,10 @@ export default [
         question: 'What does TDD stand for',
         answers: ['Try Drive Development',' Test Driven Development', 'Totally Disastrous Development', 'Technically Demanding Development'],
         correct: 1
+    },
+    {
+        question: 'The quiz has finished',
+        answers: ['The quiz has finished',' The quiz has finished', 'The quiz has finished', 'The quiz has finished'],
+        correct: 1
     }
 ]
