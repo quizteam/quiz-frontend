@@ -5,7 +5,7 @@ import Alert from 'react-bootstrap/Alert';
 class FinalScoreAlert extends React.Component {
     
       render() {
-        const handleHide = () => this.setState({ show: false });
+        
         return (
           <>
             <Alert show={this.props.visible} variant="success">
@@ -15,7 +15,7 @@ class FinalScoreAlert extends React.Component {
               </p>
               <hr />
               <div className="d-flex justify-content-end">
-                <Button onClick={handleHide} variant="outline-success">
+                <Button onClick={this.props.restartQuiz} variant="outline-success">
                  Reset Quiz
                 </Button>
               </div>
@@ -28,7 +28,6 @@ class FinalScoreAlert extends React.Component {
   
     
   export default FinalScoreAlert;
-
 
 
 

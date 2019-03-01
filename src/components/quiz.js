@@ -17,10 +17,14 @@ class Quiz extends React.Component {
         let correctAnswer = this.props.correct;
 
         if (answerGiven == correctAnswer) {
-            alert("You're right! We can add an additional message here too!"); 
+            
+            this.props.handleCorrectAnswer();
+            
+            
             this.props.handleScoreIncrease();
-        
-            this.props.handleNextQuestion();
+            
+            //going to try passing these on to the alert button to trigger when the button is clicked
+            //this.props.handleNextQuestion();
 
         } else {
             alert ("That's not the right answer. We can add some more info here, we could bring in something from the json file to give the right answer");
@@ -29,6 +33,8 @@ class Quiz extends React.Component {
         };
     };
 
+
+    
     render() {
 
         let  style= {
