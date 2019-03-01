@@ -4,8 +4,7 @@ import QuestionCounter from './components/questionCounter';
 import Score from './components/score';
 import Quiz from './components/quiz';
 import quizData from './components/quizData';
-import FinalScore from './components/finalScore';
-import AlertDismissable from './components/alert';
+import FinalScoreAlert from './components/finalScore';
 
 
 
@@ -19,7 +18,7 @@ class App extends Component {
       num: 0,
       total: quizData.length,
       score: 0,
-      visible: false
+      incorrectAlertVisible: false
     };
     this.scoreIncrease = this.scoreIncrease.bind(this);
     this.createQuestion = this.createQuestion.bind(this);
@@ -66,17 +65,18 @@ nextQuestion() {
 
 incorrectAnswer() {
   this.setState({
-    visible: true
+  incorrectAlertVisible: true
   })
 }
   render() {
     let {num, total, question, answers, correct, score, visible} = this.state;
 
-  
+    if (num == total) {
+      return <FinalScoreAlert visible = {visible} score = {score}/>
+    } else {
 
     return (
       <div className="container">
-        <AlertDismissable visible = {visible} />
         <Header />
         <Quiz 
         handleRightAnswer = {this.rightAnswer}
@@ -87,14 +87,13 @@ incorrectAnswer() {
         handleScoreIncrease = {this.scoreIncrease} 
         handleNextQuestion = {this.nextQuestion}
         num = {num} 
-        handleIncorrectAnswer = {this.incorrectAnswer}
-      />
-        
+        handleIncorrectAnswer = {this.incorrectAnswer}/>
         <QuestionCounter num = {num} total = {total}/>
         <Score score = {score} />
-        <FinalScore score = {score}/>
+        
       </div>
     );
+    };
   };
 }
 
