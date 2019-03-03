@@ -19,13 +19,12 @@ class CorrectAlert extends React.Component {
                   </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                  <h4>That's the right answer!</h4>
-                  <h5>
+                  <h4>
                     {this.props.advice}
-                  </h5>
+                  </h4>
                 </Modal.Body>
                 <Modal.Footer>
-                  <Button onClick={this.props.handleNextQuestion}>Next Question</Button>
+                  <Button variant="info" onClick={this.props.handleNextQuestion}>Next Question</Button>
                 </Modal.Footer>
               </Modal>
             );
