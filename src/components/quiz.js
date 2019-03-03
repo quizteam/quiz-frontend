@@ -20,6 +20,7 @@ class Quiz extends React.Component {
             
             this.props.handleCorrectAnswer();
             
+            this.props.handleChooseText();
             
             this.props.handleScoreIncrease();
             

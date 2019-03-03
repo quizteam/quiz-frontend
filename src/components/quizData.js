@@ -42,7 +42,7 @@ export default [
         advice: "something here"
     },
     {
-        question: '',
+        question: "Press any button to start!",
         answers: ['','', '', ''],
         correct: 1,
         advice: ''

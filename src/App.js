@@ -19,7 +19,8 @@ class App extends Component {
       //I think we might need separate state for all the alerts here, otherwise
       //we will be updating all of the alerts at once 
       visible: false,
-      correctAlertVisible: false
+      correctAlertVisible: false,
+      correctText: ''
     };
     this.scoreIncrease = this.scoreIncrease.bind(this);
     this.createQuestion = this.createQuestion.bind(this);
@@ -29,8 +30,19 @@ class App extends Component {
     this.correctAnswer = this.correctAnswer.bind(this);
     this.clearCorrectAlert = this.clearCorrectAlert.bind(this);
     this.restartQuiz = this.restartQuiz.bind(this);
-
+    this.chooseText = this.chooseText.bind(this);
   }
+
+  chooseText() {
+    let correctOptions = ["Well done!", "Great!", "Nice work!", "Yeah!", "You're correct!"];
+    let a = Math.floor(Math.random()*4);
+    this.setState({
+      correctText: correctOptions[a]
+    })
+  
+  }
+
+
 
 createQuestion(num) {
     this.setState({
@@ -86,13 +98,13 @@ clearCorrectAlert() {
 }
 
 restartQuiz() {
- alert("The quiz should restart now");
  this.setState({
    num: 0,
    score: 0,
    total: quizData.length
  })
  this.componentWillMount();
+ console.log(this.state.num);
 }
 
 incorrectAnswer() {
@@ -101,7 +113,7 @@ incorrectAnswer() {
   })
 }
   render() {
-    let {num, total, question, answers, correct, score, correctAlertVisible, advice} = this.state;
+    let {num, total, question, answers, correct, score, correctAlertVisible, advice, correctText} = this.state;
 
     if (num == total) {
       return <FinalScoreAlert score = {score} restartQuiz = {this.restartQuiz} />
@@ -120,10 +132,11 @@ incorrectAnswer() {
         num = {num} 
         handleIncorrectAnswer = {this.incorrectAnswer}
         handleCorrectAnswer = {this.correctAnswer}
-        handleNextQuestion = {this.nextQuestion} />
+        handleNextQuestion = {this.nextQuestion} 
+        handleChooseText = {this.chooseText} />
         <QuestionCounter num = {num} total = {total}/>
         <Score score = {score} />
-        <CorrectAlert advice = {advice} visible = {correctAlertVisible} handleNextQuestion = {this.nextQuestion}/>
+        <CorrectAlert provideCorrectText = {correctText} advice = {advice} visible = {correctAlertVisible} handleNextQuestion = {this.nextQuestion}/>
         
       </div>
     );
