@@ -63,9 +63,7 @@ componentWillMount() {
 nextQuestion() {
   let { num, total} = this.state;
 
-  if (num === total) {
-    alert("The quiz is finished");
-  } else {
+  if (num < total) {
     //this line hides the correct alert again by setting state to false
     this.clearCorrectAlert();
     this.createQuestion(num);
@@ -88,11 +86,12 @@ clearCorrectAlert() {
 
 restartQuiz() {
  alert("The quiz should restart now");
- /*this.setState({
+ this.setState({
    num: 0,
-   score: 0
+   score: 0,
+   total: quizData.length
  })
- this.createQuestion(num);*/
+ this.componentWillMount();
 }
 
 incorrectAnswer() {

@@ -4,41 +4,40 @@ import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 
 class FinalScoreAlert extends React.Component {
-        
-        render() {
-            return (
-              alert("Final score coming up"),
-              <Modal
-                show = "true"
-                size="lg"
-                aria-labelledby="contained-modal-title-vcenter"
-                centered
-              >
-                <Modal.Header style = {styles.modal}>
-                  <Modal.Title id="contained-modal-title-vcenter">
-                    Quiz Complete!
+
+  render() {
+    return (
+      <Modal
+        show="true"
+        size="lg"
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+      >
+        <Modal.Header style={styles.modal}>
+          <Modal.Title id="contained-modal-title-vcenter">
+            Quiz Complete!
                   </Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                  <h4>Your score is {this.props.score}</h4>
-                </Modal.Body>
-                <Modal.Footer>
-                  <Button onClick={this.props.restartQuiz}>Try again</Button>
-                </Modal.Footer>
-              </Modal>
-            );
-          }
-        }
+        </Modal.Header>
+        <Modal.Body>
+          <h4>Your score is {this.props.score}</h4>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button onClick={this.props.restartQuiz}>Try again</Button>
+        </Modal.Footer>
+      </Modal>
+    );
+  }
+}
 
 
-        const styles = {
-          modal: {
-            backgroundColor: "#32CD32",
-            color: "white",
-          }
-        }
-  
-  export default FinalScoreAlert;
+const styles = {
+  modal: {
+    backgroundColor: "#6f42C1",
+    color: "white",
+  }
+}
+
+export default FinalScoreAlert;
 
 
 
@@ -50,9 +49,9 @@ import Button from 'react-bootstrap/Button';
 import Alert from 'react-bootstrap/Alert';
 
 class FinalScoreAlert extends React.Component {
-    
+
       render() {
-        
+
         return (
           <>
             <Alert show={this.props.visible} variant="success">
@@ -71,9 +70,9 @@ class FinalScoreAlert extends React.Component {
         );
       }
     }
-  
-  
-    
+
+
+
 export default FinalScoreAlert;*/
 
 
