@@ -19,7 +19,7 @@ class FinalScoreAlert extends React.Component {
                   </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <h4>Your score is {this.props.score}</h4>
+          <h4>Your score is {this.props.score} out of {this.props.total-1} </h4>
         </Modal.Body>
         <Modal.Footer>
           <Button onClick={this.props.restartQuiz}>Try again</Button>
