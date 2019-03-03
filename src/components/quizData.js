@@ -3,14 +3,14 @@ export default [
         question: 'In JavaScript, which of these is known as an assignment operator?',
         answers: ['*', '-', '=', '+'],
         correct: 2,
-        advice: "something here"
+        advice: "Assignment operators assign values to variables. Other examples include -=  += and *= "
     },
 
     {
         question: 'In Javascript, which of these is these is the logical operator meaning, "both these things must be true?',
         answers: ['&&', '||', '!', '++'],
         correct: 0,
-        advice: "something here"
+        advice: "&& is the logical AND operator. It returns true if the operands to the right and left of it are true."
     },    
     {
         question: 'Which git command allows you to view your previous commits?',

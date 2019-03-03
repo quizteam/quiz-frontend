@@ -37,6 +37,7 @@ createQuestion(num) {
         question: quizData[num].question,
         answers: [quizData[num].answers[0], quizData[num].answers[1], quizData[num].answers[2], quizData[num].answers[3]],
         correct: quizData[num].correct,
+        advice: quizData[num].advice,
         num: this.state.num + 1
     });
 }
@@ -100,7 +101,7 @@ incorrectAnswer() {
   })
 }
   render() {
-    let {num, total, question, answers, correct, score, correctAlertVisible} = this.state;
+    let {num, total, question, answers, correct, score, correctAlertVisible, advice} = this.state;
 
     if (num == total) {
       return <FinalScoreAlert score = {score} restartQuiz = {this.restartQuiz} />
@@ -122,7 +123,7 @@ incorrectAnswer() {
         handleNextQuestion = {this.nextQuestion} />
         <QuestionCounter num = {num} total = {total}/>
         <Score score = {score} />
-        <CorrectAlert visible = {correctAlertVisible} handleNextQuestion = {this.nextQuestion}/>
+        <CorrectAlert advice = {advice} visible = {correctAlertVisible} handleNextQuestion = {this.nextQuestion}/>
         
       </div>
     );
