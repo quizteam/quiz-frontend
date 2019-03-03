@@ -8,7 +8,6 @@ import FinalScoreAlert from './components/finalScore';
 import CorrectAlert from './components/correctAlert';
 import WelcomeAlert from './components/WelcomeAlert';
 
-
 class App extends Component {
 
   constructor(props) {
@@ -22,6 +21,7 @@ class App extends Component {
       //we will be updating all of the alerts at once 
       visible: false,
       correctAlertVisible: false,
+      correctText: '',
       WelcomeAlertVisible: false
     };
     this.scoreIncrease = this.scoreIncrease.bind(this);
@@ -32,7 +32,15 @@ class App extends Component {
     this.correctAnswer = this.correctAnswer.bind(this);
     this.clearCorrectAlert = this.clearCorrectAlert.bind(this);
     this.restartQuiz = this.restartQuiz.bind(this);
+    this.chooseText = this.chooseText.bind(this);
+  }
 
+  chooseText() {
+    let correctOptions = ["Well done!", "Great!", "Nice work!", "Yeah!", "You're correct!", "Yes!"];
+    let a = Math.floor(Math.random()*5);
+    this.setState({
+      correctText: correctOptions[a]
+    })
   }
 
 createQuestion(num) {
@@ -40,8 +48,8 @@ createQuestion(num) {
         question: quizData[num].question,
         answers: [quizData[num].answers[0], quizData[num].answers[1], quizData[num].answers[2], quizData[num].answers[3]],
         correct: quizData[num].correct,
-        num: this.state.num + 1,
-        
+        advice: quizData[num].advice,
+        num: this.state.num + 1
     });
 }
 
@@ -67,9 +75,7 @@ componentWillMount() {
 nextQuestion() {
   let { num, total} = this.state;
 
-  if (num === total) {
-    alert("The quiz is finished");
-  } else {
+  if (num < total) {
     //this line hides the correct alert again by setting state to false
     this.clearCorrectAlert();
     this.createQuestion(num);
@@ -93,12 +99,14 @@ clearCorrectAlert() {
 }
 
 restartQuiz() {
- alert("The quiz should restart now");
- /*this.setState({
-   num: 0,
-   score: 0
- })
- this.createQuestion(num);*/
+  this.setState({
+    num: 0,
+    score: 0
+  })
+ 
+alert(this.state.num);
+ //need to restart quiz but state is not updating and error also thrown.
+
 }
 
 incorrectAnswer() {
@@ -107,10 +115,12 @@ incorrectAnswer() {
   })
 }
   render() {
-    let {num, total, question, answers, correct, score, correctAlertVisible, WelcomeAlertVisible,} = this.state;
+    let {num, total, question, answers, correct, score, correctAlertVisible, advice, correctText, WelcomeAlertVisible} = this.state;
+
 
     if (num == total) {
       return <FinalScoreAlert score = {score} restartQuiz = {this.restartQuiz} />
+     
     } else {
 
     return (
@@ -126,12 +136,13 @@ incorrectAnswer() {
         handleScoreIncrease = {this.scoreIncrease} 
         num = {num} 
         handleIncorrectAnswer = {this.incorrectAnswer}
-        handleCorrectAnswer = {this.correctAnswer} 
-        handleNextQuestion = {this.nextQuestion} />
+        handleCorrectAnswer = {this.correctAnswer}
+        handleNextQuestion = {this.nextQuestion} 
+        handleChooseText = {this.chooseText} />
         <QuestionCounter num = {num} total = {total}/>
         <Score score = {score} />
-        <CorrectAlert visible = {correctAlertVisible}  handleNextQuestion = {this.nextQuestion}/>
-       
+        <CorrectAlert provideCorrectText = {correctText} advice = {advice} visible = {correctAlertVisible} handleNextQuestion = {this.nextQuestion}/>
+        
       </div>
     );
     };

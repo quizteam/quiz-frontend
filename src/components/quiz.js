@@ -20,6 +20,7 @@ class Quiz extends React.Component {
             
             this.props.handleCorrectAnswer();
             
+            this.props.handleChooseText();
             
             this.props.handleScoreIncrease();
             
@@ -39,9 +40,10 @@ class Quiz extends React.Component {
 
         let  style= {
             margin: "10px",
-            width: "400px",
-            height: "50px",
-            fontSize: 20
+            width: "450px",
+            height: "75px",
+            fontSize: 20,
+            boxShadow: "none"
         }
 
         return (
@@ -54,7 +56,7 @@ class Quiz extends React.Component {
             <button 
             id = "0"
             type = "button" 
-            className="btn btn-success"
+            className="btn btn-outline-primary"  
             ref = {this.buttonRef}
             style={style}
             onClick={this.onAnswerClicked} >
@@ -64,7 +66,7 @@ class Quiz extends React.Component {
             <div className = "d-flex justify-content-center">
             <button 
             id = "1"
-            className="btn btn-danger"
+            className="btn btn-outline-primary"
             type = "button" 
             style={style}
             onClick={this.onAnswerClicked}>
@@ -74,7 +76,7 @@ class Quiz extends React.Component {
             <div className = "d-flex justify-content-center">
             <button 
             id = "2"
-            className="btn btn-success"
+            className="btn btn-outline-primary"
             type = "button" 
             style={style}
             onClick={this.onAnswerClicked} >
@@ -84,7 +86,7 @@ class Quiz extends React.Component {
             <div className = "d-flex justify-content-center">
             <button 
             id = "3"
-            className="btn btn-success"
+            className="btn btn-outline-primary"
             type = "button" 
             style={style}
             onClick={this.onAnswerClicked} >
@@ -101,6 +103,8 @@ const styles = {
     question: {
         fontSize: 30
     }
+
+
 
 };
 export default Quiz;

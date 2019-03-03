@@ -4,7 +4,7 @@ import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 
 class CorrectAlert extends React.Component {
-
+  
         render() {
             return (
               <Modal
@@ -15,14 +15,14 @@ class CorrectAlert extends React.Component {
               >
                 <Modal.Header style = {styles.modal}>
                   <Modal.Title id="contained-modal-title-vcenter">
-                   Well done!
+                   {this.props.provideCorrectText}
                   </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                  <h4>That's the right answer</h4>
-                  <p>
-                    More info here
-                  </p>
+                  <h4>That's the right answer!</h4>
+                  <h5>
+                    {this.props.advice}
+                  </h5>
                 </Modal.Body>
                 <Modal.Footer>
                   <Button onClick={this.props.handleNextQuestion}>Next Question</Button>
