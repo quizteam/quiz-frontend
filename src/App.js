@@ -6,6 +6,7 @@ import Quiz from './components/quiz';
 import quizData from './components/quizData';
 import FinalScoreAlert from './components/finalScore';
 import CorrectAlert from './components/correctAlert';
+import WelcomeAlert from './components/WelcomeAlert';
 
 class App extends Component {
 
@@ -15,11 +16,13 @@ class App extends Component {
       num: 0,
       total: quizData.length,
       score: 0,
+      
       //I think we might need separate state for all the alerts here, otherwise
       //we will be updating all of the alerts at once 
       visible: false,
       correctAlertVisible: false,
-      correctText: ''
+      correctText: '',
+      WelcomeAlertVisible: false
     };
     this.scoreIncrease = this.scoreIncrease.bind(this);
     this.createQuestion = this.createQuestion.bind(this);
@@ -83,6 +86,8 @@ nextQuestion() {
 correctAnswer() {
   this.setState({
     correctAlertVisible: true
+    
+
   })
 }
 
@@ -110,7 +115,8 @@ incorrectAnswer() {
   })
 }
   render() {
-    let {num, total, question, answers, correct, score, correctAlertVisible, advice, correctText} = this.state;
+    let {num, total, question, answers, correct, score, correctAlertVisible, advice, correctText, WelcomeAlertVisible} = this.state;
+
 
     if (num == total) {
       return <FinalScoreAlert score = {score} restartQuiz = {this.restartQuiz} />
@@ -121,6 +127,7 @@ incorrectAnswer() {
       
       <div className="container">
         <Header />
+        <WelcomeAlert visible ={WelcomeAlertVisible}/>
         <Quiz 
         question = {question} 
         answers = {answers} 
