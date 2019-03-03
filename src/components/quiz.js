@@ -43,6 +43,7 @@ class Quiz extends React.Component {
             width: "450px",
             height: "75px",
             fontSize: 20,
+            boxShadow: "none"
         }
 
         return (
@@ -55,7 +56,7 @@ class Quiz extends React.Component {
             <button 
             id = "0"
             type = "button" 
-            class="btn btn-outline-primary"
+            className="btn btn-outline-primary"  
             ref = {this.buttonRef}
             style={style}
             onClick={this.onAnswerClicked} >
@@ -65,7 +66,7 @@ class Quiz extends React.Component {
             <div className = "row">
             <button 
             id = "1"
-            class="btn btn-outline-primary"
+            className="btn btn-outline-primary"
             type = "button" 
             style={style}
             onClick={this.onAnswerClicked}>
@@ -75,7 +76,7 @@ class Quiz extends React.Component {
             <div className = "row">
             <button 
             id = "2"
-            class="btn btn-outline-primary"
+            className="btn btn-outline-primary"
             type = "button" 
             style={style}
             onClick={this.onAnswerClicked} >
@@ -85,7 +86,7 @@ class Quiz extends React.Component {
             <div className = "row">
             <button 
             id = "3"
-            class="btn btn-outline-primary"
+            className="btn btn-outline-primary"
             type = "button" 
             style={style}
             onClick={this.onAnswerClicked} >
@@ -102,6 +103,8 @@ const styles = {
     question: {
         fontSize: 30
     }
+
+
 
 };
 export default Quiz;

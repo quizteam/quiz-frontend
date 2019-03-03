@@ -7,7 +7,6 @@ import quizData from './components/quizData';
 import FinalScoreAlert from './components/finalScore';
 import CorrectAlert from './components/correctAlert';
 
-
 class App extends Component {
 
   constructor(props) {
@@ -34,15 +33,12 @@ class App extends Component {
   }
 
   chooseText() {
-    let correctOptions = ["Well done!", "Great!", "Nice work!", "Yeah!", "You're correct!"];
-    let a = Math.floor(Math.random()*4);
+    let correctOptions = ["Well done!", "Great!", "Nice work!", "Yeah!", "You're correct!", "Yes!"];
+    let a = Math.floor(Math.random()*5);
     this.setState({
       correctText: correctOptions[a]
     })
-  
   }
-
-
 
 createQuestion(num) {
     this.setState({
@@ -98,13 +94,14 @@ clearCorrectAlert() {
 }
 
 restartQuiz() {
- this.setState({
-   num: 0,
-   score: 0,
-   total: quizData.length
- })
- this.componentWillMount();
- console.log(this.state.num);
+  this.setState({
+    num: 0,
+    score: 0
+  })
+ 
+alert(this.state.num);
+ //need to restart quiz but state is not updating and error also thrown.
+
 }
 
 incorrectAnswer() {
@@ -117,6 +114,7 @@ incorrectAnswer() {
 
     if (num == total) {
       return <FinalScoreAlert score = {score} restartQuiz = {this.restartQuiz} />
+     
     } else {
 
     return (
