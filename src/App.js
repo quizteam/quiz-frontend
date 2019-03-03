@@ -7,7 +7,6 @@ import quizData from './components/quizData';
 import FinalScoreAlert from './components/finalScore';
 import CorrectAlert from './components/correctAlert';
 
-console.log(quizData);
 
 class App extends Component {
 
@@ -56,7 +55,6 @@ scoreIncrease() {
 componentWillMount() {
   let { num } = this.state;
   this.createQuestion(num);
-  alert("The length is " + quizData.length);
 }
 
 //this function is now being passed into the alert, rather than quiz.js
