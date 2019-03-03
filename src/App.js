@@ -6,6 +6,7 @@ import Quiz from './components/quiz';
 import quizData from './components/quizData';
 import FinalScoreAlert from './components/finalScore';
 import CorrectAlert from './components/correctAlert';
+import WelcomeAlert from './components/WelcomeAlert';
 
 
 class App extends Component {
@@ -16,10 +17,12 @@ class App extends Component {
       num: 0,
       total: quizData.length,
       score: 0,
+      
       //I think we might need separate state for all the alerts here, otherwise
       //we will be updating all of the alerts at once 
       visible: false,
-      correctAlertVisible: false
+      correctAlertVisible: false,
+      WelcomeAlertVisible: false
     };
     this.scoreIncrease = this.scoreIncrease.bind(this);
     this.createQuestion = this.createQuestion.bind(this);
@@ -37,7 +40,8 @@ createQuestion(num) {
         question: quizData[num].question,
         answers: [quizData[num].answers[0], quizData[num].answers[1], quizData[num].answers[2], quizData[num].answers[3]],
         correct: quizData[num].correct,
-        num: this.state.num + 1
+        num: this.state.num + 1,
+        
     });
 }
 
@@ -76,6 +80,8 @@ nextQuestion() {
 correctAnswer() {
   this.setState({
     correctAlertVisible: true
+    
+
   })
 }
 
@@ -101,7 +107,7 @@ incorrectAnswer() {
   })
 }
   render() {
-    let {num, total, question, answers, correct, score, correctAlertVisible} = this.state;
+    let {num, total, question, answers, correct, score, correctAlertVisible, WelcomeAlertVisible,} = this.state;
 
     if (num == total) {
       return <FinalScoreAlert score = {score} restartQuiz = {this.restartQuiz} />
@@ -111,6 +117,7 @@ incorrectAnswer() {
       
       <div className="container">
         <Header />
+        <WelcomeAlert visible ={WelcomeAlertVisible}/>
         <Quiz 
         question = {question} 
         answers = {answers} 
@@ -119,12 +126,12 @@ incorrectAnswer() {
         handleScoreIncrease = {this.scoreIncrease} 
         num = {num} 
         handleIncorrectAnswer = {this.incorrectAnswer}
-        handleCorrectAnswer = {this.correctAnswer}
+        handleCorrectAnswer = {this.correctAnswer} 
         handleNextQuestion = {this.nextQuestion} />
         <QuestionCounter num = {num} total = {total}/>
         <Score score = {score} />
-        <CorrectAlert visible = {correctAlertVisible} handleNextQuestion = {this.nextQuestion}/>
-        
+        <CorrectAlert visible = {correctAlertVisible}  handleNextQuestion = {this.nextQuestion}/>
+       
       </div>
     );
     };

@@ -47,10 +47,10 @@ class Quiz extends React.Component {
         return (
         <div id = "choices" 
             className = "container">
-            <div className = "row">
+            <div className = "d-flex justify-content-center">
             <p style = {styles.question} >{this.props.question}</p>
             </div>
-            <div className = "row">
+            <div className = "d-flex justify-content-center">
             <button 
             id = "0"
             type = "button" 
@@ -61,7 +61,7 @@ class Quiz extends React.Component {
             {this.props.answers[0]}</button>
             </div>
             
-            <div className = "row">
+            <div className = "d-flex justify-content-center">
             <button 
             id = "1"
             className="btn btn-danger"
@@ -71,7 +71,7 @@ class Quiz extends React.Component {
             {this.props.answers[1]}</button>
             </div>
 
-            <div className = "row">
+            <div className = "d-flex justify-content-center">
             <button 
             id = "2"
             className="btn btn-success"
@@ -81,7 +81,7 @@ class Quiz extends React.Component {
             {this.props.answers[2]}</button>
             </div>
 
-            <div className = "row">
+            <div className = "d-flex justify-content-center">
             <button 
             id = "3"
             className="btn btn-success"
