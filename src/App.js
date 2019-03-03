@@ -6,6 +6,7 @@ import Quiz from './components/quiz';
 import quizData from './components/quizData';
 import FinalScoreAlert from './components/finalScore';
 import CorrectAlert from './components/correctAlert';
+import IncorrectAlert from './components/incorrectAlert';
 import WelcomeAlert from './components/WelcomeAlert';
 
 class App extends Component {
@@ -21,7 +22,9 @@ class App extends Component {
       //we will be updating all of the alerts at once 
       visible: false,
       correctAlertVisible: false,
+      incorrectAlertVisible: false,
       correctText: '',
+      incorrectText: '',
       WelcomeAlertVisible: false
     };
     this.scoreIncrease = this.scoreIncrease.bind(this);
@@ -31,8 +34,10 @@ class App extends Component {
     this.incorrectAnswer = this.incorrectAnswer.bind(this);
     this.correctAnswer = this.correctAnswer.bind(this);
     this.clearCorrectAlert = this.clearCorrectAlert.bind(this);
+    this.clearIncorrectAlert = this.clearIncorrectAlert.bind(this);
     this.restartQuiz = this.restartQuiz.bind(this);
     this.chooseText = this.chooseText.bind(this);
+    this.chooseWords = this.chooseWords.bind(this);
   }
 
   chooseText() {
@@ -42,6 +47,14 @@ class App extends Component {
       correctText: correctOptions[a]
     })
   }
+
+  chooseWords(){
+  let incorrectOptions = ["Bad luck", "Try better next time", "Unlucky"];
+  let wrong = Math.floor(Math.random()*2);
+  this.setState({
+    incorrectText: incorrectOptions[wrong]
+  })
+}
 
 createQuestion(num) {
     this.setState({
@@ -78,6 +91,7 @@ nextQuestion() {
   if (num < total) {
     //this line hides the correct alert again by setting state to false
     this.clearCorrectAlert();
+    this.clearIncorrectAlert();
     this.createQuestion(num);
   }
 };
@@ -86,8 +100,6 @@ nextQuestion() {
 correctAnswer() {
   this.setState({
     correctAlertVisible: true
-    
-
   })
 }
 
@@ -97,6 +109,22 @@ clearCorrectAlert() {
     correctAlertVisible: false
   })
 }
+
+//I've given correct answer its own state, rather than just using visible, so that
+//we can control the alerts individually
+incorrectAnswer() {
+  this.setState({
+    incorrectAlertVisible: true
+  })
+}
+
+//this function sets state to false, triggered by nextQuestion
+clearIncorrectAlert() {
+  this.setState({
+    incorrectAlertVisible: false
+  })
+}
+
 
 restartQuiz() {
   this.setState({
@@ -109,13 +137,13 @@ alert(this.state.num);
 
 }
 
-incorrectAnswer() {
+/*incorrectAnswer() {
   this.setState({
- visible: true
+    visible: true
   })
-}
+}*/
   render() {
-    let {num, total, question, answers, correct, score, correctAlertVisible, advice, correctText, WelcomeAlertVisible} = this.state;
+    let {num, total, question, answers, correct, score, correctAlertVisible, incorrectAlertVisible, advice, correctText, incorrectText, WelcomeAlertVisible} = this.state;
 
 
     if (num == total) {
@@ -138,11 +166,12 @@ incorrectAnswer() {
         handleIncorrectAnswer = {this.incorrectAnswer}
         handleCorrectAnswer = {this.correctAnswer}
         handleNextQuestion = {this.nextQuestion} 
-        handleChooseText = {this.chooseText} />
+        handleChooseText = {this.chooseText} 
+        handleChooseWords = {this.chooseWords} />
         <QuestionCounter num = {num} total = {total}/>
         <Score score = {score} />
         <CorrectAlert provideCorrectText = {correctText} advice = {advice} visible = {correctAlertVisible} handleNextQuestion = {this.nextQuestion}/>
-        
+        <IncorrectAlert provideIncorrectText = {incorrectText} advice = {advice} visible = {incorrectAlertVisible} handleNextQuestion = {this.nextQuestion}/>
       </div>
     );
     };
