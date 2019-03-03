@@ -6,7 +6,7 @@ class QuestionCounter extends React.Component {
 
 
         return (
-        <div className = "container-fluid">
+        <div className = "d-flex justify-content-center">
         Question {this.props.num} of {this.props.total-1} 
         </div>
         );
