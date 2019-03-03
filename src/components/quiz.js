@@ -40,8 +40,8 @@ class Quiz extends React.Component {
 
         let  style= {
             margin: "10px",
-            width: "450px",
-            height: "75px",
+            width: "460px",
+            height: "80px",
             fontSize: 20,
             boxShadow: "none"
         }
@@ -55,8 +55,7 @@ class Quiz extends React.Component {
             <div className = "d-flex justify-content-center">
             <button 
             id = "0"
-            type = "button" 
-            className="btn btn-outline-primary"  
+            className="btn btn-outline-info"  
             ref = {this.buttonRef}
             style={style}
             onClick={this.onAnswerClicked} >
@@ -66,8 +65,7 @@ class Quiz extends React.Component {
             <div className = "d-flex justify-content-center">
             <button 
             id = "1"
-            className="btn btn-outline-primary"
-            type = "button" 
+            className="btn btn-outline-info"
             style={style}
             onClick={this.onAnswerClicked}>
             {this.props.answers[1]}</button>
@@ -76,8 +74,7 @@ class Quiz extends React.Component {
             <div className = "d-flex justify-content-center">
             <button 
             id = "2"
-            className="btn btn-outline-primary"
-            type = "button" 
+            className="btn btn-outline-info"
             style={style}
             onClick={this.onAnswerClicked} >
             {this.props.answers[2]}</button>
@@ -86,8 +83,7 @@ class Quiz extends React.Component {
             <div className = "d-flex justify-content-center">
             <button 
             id = "3"
-            className="btn btn-outline-primary"
-            type = "button" 
+            className="btn btn-outline-info"
             style={style}
             onClick={this.onAnswerClicked} >
             {this.props.answers[3]}</button>
@@ -101,7 +97,8 @@ class Quiz extends React.Component {
 const styles = {
      
     question: {
-        fontSize: 30
+        fontSize: 30,
+        textAlign: "center"
     }
 
 
