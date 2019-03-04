@@ -40,10 +40,11 @@ class Quiz extends React.Component {
 
         let  style= {
             margin: "10px",
-            width: "460px",
+            width: "500px",
             height: "80px",
-            fontSize: 20,
-            boxShadow: "none"
+            fontSize: 22,
+            boxShadow: "none",
+            fontWeight: "bold"
         }
 
         return (
@@ -98,7 +99,8 @@ const styles = {
      
     question: {
         fontSize: 30,
-        textAlign: "center"
+        textAlign: "center",
+        fontWeight: "bold"
     }
 
 

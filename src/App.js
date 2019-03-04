@@ -17,9 +17,6 @@ class App extends Component {
       num: 0,
       total: quizData.length,
       score: 0,
-      
-      //I think we might need separate state for all the alerts here, otherwise
-      //we will be updating all of the alerts at once 
       visible: false,
       correctAlertVisible: false,
       incorrectAlertVisible: false,
@@ -49,8 +46,8 @@ class App extends Component {
   }
 
   chooseWords(){
-  let incorrectOptions = ["Bad luck", "Try better next time", "Unlucky"];
-  let wrong = Math.floor(Math.random()*2);
+  let incorrectOptions = ["Bad luck", "Try better next time", "Unlucky", "Not quite!", "Oh dear!"];
+  let wrong = Math.floor(Math.random()*4);
   this.setState({
     incorrectText: incorrectOptions[wrong]
   })
@@ -126,28 +123,24 @@ clearIncorrectAlert() {
 }
 
 
-restartQuiz() {
+restartQuiz = () => {
   this.setState({
     num: 0,
     score: 0
+  }, () => {
+    this.createQuestion(this.state.num)
   })
+};
  
-alert(this.state.num);
+//alert(this.state.num);
  //need to restart quiz but state is not updating and error also thrown.
 
-}
-
-/*incorrectAnswer() {
-  this.setState({
-    visible: true
-  })
-}*/
   render() {
     let {num, total, question, answers, correct, score, correctAlertVisible, incorrectAlertVisible, advice, correctText, incorrectText, WelcomeAlertVisible} = this.state;
 
 
     if (num == total) {
-      return <FinalScoreAlert score = {score} restartQuiz = {this.restartQuiz} />
+      return <FinalScoreAlert score = {score} restartQuiz = {this.restartQuiz} total = {total} />
      
     } else {
 

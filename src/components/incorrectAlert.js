@@ -25,7 +25,7 @@ class IncorrectAlert extends React.Component {
                   </h5>
                 </Modal.Body>
                 <Modal.Footer>
-                  <Button onClick={this.props.handleNextQuestion}>Next Question</Button>
+                  <Button variant="info" onClick={this.props.handleNextQuestion}>Next Question</Button>
                 </Modal.Footer>
               </Modal>
             );
