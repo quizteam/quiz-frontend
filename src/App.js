@@ -123,22 +123,18 @@ clearIncorrectAlert() {
 }
 
 
-restartQuiz() {
+restartQuiz = () => {
   this.setState({
     num: 0,
     score: 0
+  }, () => {
+    this.createQuestion(this.state.num)
   })
+};
  
-alert(this.state.num);
+//alert(this.state.num);
  //need to restart quiz but state is not updating and error also thrown.
 
-}
-
-/*incorrectAnswer() {
-  this.setState({
-    visible: true
-  })
-}*/
   render() {
     let {num, total, question, answers, correct, score, correctAlertVisible, incorrectAlertVisible, advice, correctText, incorrectText, WelcomeAlertVisible} = this.state;
 
