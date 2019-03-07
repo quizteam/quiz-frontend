@@ -46,8 +46,8 @@ class App extends Component {
   }
 
   chooseWords(){
-  let incorrectOptions = ["Bad luck", "Try better next time", "Unlucky", "Not quite!", "Oh dear!"];
-  let wrong = Math.floor(Math.random()*4);
+  let incorrectOptions = ["Bad luck", "Wrong answer!", "Unlucky", "Not quite!", "Oh dear!", "Oops"];
+  let wrong = Math.floor(Math.random()*5);
   this.setState({
     incorrectText: incorrectOptions[wrong]
   })

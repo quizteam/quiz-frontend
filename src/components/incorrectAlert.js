@@ -19,7 +19,6 @@ class IncorrectAlert extends React.Component {
                   </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                  <h4>That's the wrong answer!</h4>
                   <h5>
                     {this.props.advice}
                   </h5>
